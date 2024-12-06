@@ -16,7 +16,7 @@ TEST(ArrayUtilitiesTest, CreateAndClearArray) {
     int** array = createTwoDimArray(numRows, numCols);
     
     // Log the size of the created array
-    LOG(TRACE) << "Created 2D array with dimensions: %d x %d", numRows, numCols;
+    LOG(TRACE) << "Created 2D array with dimensions: %d" << numRows << "x %d" << numCols;
     // LOG(TRACE) << "a[" << i << "] = " << a[i];
 
     // Assert that the array was created correctly
