@@ -78,7 +78,7 @@ Device Input/---: none
 Device Output/monitor: data displayed as specified
 Dependencies: displayDividerLine, printf (14 lines of code)
 */
-void displayArray( int **array, int numRows, int numCols, const char *title );
+void displayArray( int **array, int numRows, int numCols, char *title );
 
 /*
 Name: displayDividerLine
