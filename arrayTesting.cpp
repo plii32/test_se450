@@ -16,8 +16,7 @@ TEST(ArrayUtilitiesTest, CreateAndClearArray) {
     int** array = createTwoDimArray(numRows, numCols);
     
     // Log the size of the created array
-    LOG(TRACE) << "Created 2D array with dimensions: %d" << numRows << "x %d" << numCols;
-    // LOG(TRACE) << "a[" << i << "] = " << a[i];
+    LOG(TRACE) << "Created 2D array with dimensions: " << numRows << "x" << numCols;
 
     // Assert that the array was created correctly
     ASSERT_NE(array, nullptr);
@@ -41,9 +40,6 @@ TEST(ArrayUtilitiesTest, CopyArray) {
 
     // Fill the source array with random values
     loadArrayWithValues(sourceArray, numRows, numCols);
-
-    // Log the values being copied
-    //DeepState_StreamFormat(DEEPSTATE_LOG_INFO, "Copying array from source to destination");
 
     // Copy the source array to the destination array
     copyArray(destArray, sourceArray, numRows, numCols);
@@ -72,9 +68,6 @@ TEST(ArrayUtilitiesTest, LoadArrayWithValues) {
     // Load the array with random values
     loadArrayWithValues(array, numRows, numCols);
 
-    // Log the values in the array
-    //DeepState_StreamFormat(DEEPSTATE_LOG_INFO, "Loaded array with random values");
-
     // Assert that the array is filled with non-zero values
     bool valuesFilled = true;
     for (int row = 0; row < numRows; ++row) {
@@ -90,7 +83,7 @@ TEST(ArrayUtilitiesTest, LoadArrayWithValues) {
     ASSERT_TRUE(valuesFilled);
 
     // Clean up
-    clearTwoDimArray(array, numCols);
+    array = clearTwoDimArray(array, numCols);
 }
 
 // Test for removing a range of values from the array
@@ -111,8 +104,8 @@ TEST(ArrayUtilitiesTest, RemoveRangeFromArray) {
     range.highVal = DeepState_IntInRange(range.lowVal, numRows * numCols);
 
     // Log the range to remove
-    //DeepState_StreamFormat(DEEPSTATE_LOG_INFO, "Removing range: %d to %d", range.lowVal, range.highVal);
     LOG(TRACE) << "Removing range: " << range.lowVal << " to " << range.highVal;
+
     // Remove the specified range
     removeRange(array, numRows, numCols, range);
 
